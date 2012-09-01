@@ -9,3 +9,9 @@ Por exemplo: un grupo de amigos que quere subir e intercambiar as suas fotos de 
 * As fotos súbense directamente mediante drag and drop
 * Crea miniaturas automaticamente. Redimensiona as fotos subidas a un tamaño máximo de 1200px para aforrar espazo.
 * Chrome/Firefox
+
+Instalacion
+-----------
+
+* Descargar o proxecto
+* Executar o composer para instalar dependencias: ```$ curl -s https://getcomposer.org/installer | php``` ```$ php composer.phar install```
