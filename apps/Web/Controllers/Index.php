@@ -73,7 +73,11 @@ class Index {
 	public function subirFotos ($nome) {
 		$foto = $this->Request->Files->get('userfile');
 
-		$this->Galleries->uploadPhoto($nome, $foto);
+		if ($this->Galleries->uploadPhoto($nome, $foto)) {
+			return 'Foto subida';
+		}
+
+		return 'Non se subiu a foto '.$nome;
 	}
 }
 ?>

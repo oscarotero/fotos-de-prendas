@@ -19,17 +19,31 @@ $(document).ready(function () {
 			maxfiles: 200,
 			maxfilesize: 100,
 			allowedfiletypes: ['image/jpg', 'image/jpeg'],
+			error: function(err, file) {
+				if (err === 'BrowserNotSupported') {
+					alert('Non podes subir arquivos porque o teu navegador é antigo');
+				}
+		    },
 			globalProgressUpdated: function (progress) {
 				$progress.prop('value', progress);
 			},
-			uploadStarted: function () {
+			drop: function () {
 				$progress.show();
 			},
 			afterAll: function () {
-				document.location.href = document.location.href;
+				$input.slideUp('normal', function () {
+					document.location.href = document.location.href;
+				});
 			}
 		});
 
 		return false;
+	});
+
+	$(document).on('dragenter', function () {
+		if ($('#engadir-fotos-input').is(':hidden')) {
+			$('#engadir-fotos-boton').click();
+			$('html').animate({scrollTop: 0}, 500);
+		}
 	});
 });

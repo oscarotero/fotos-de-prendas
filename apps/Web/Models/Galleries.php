@@ -44,11 +44,18 @@ class Galleries {
 		if ($this->exists($gallery)) {
 			$file = $this->path.$gallery.'/'.$photo['name'];
 
-			rename($photo['tmp_name'], $file);
+			if (rename($photo['tmp_name'], $file) === false) {
+				return false;
+			}
+
 			chmod($file, 0755);
 
 			$Imagecow = \Imagecow\Image::create();
 			$Imagecow->load($file)->resize(1200, 1200)->save();
+
+			return true;
 		}
+
+		return false;
 	}
 }
