@@ -1,4 +1,0 @@
-assets/fotos/*
-assets/cache/*
-!assets/cache/.htaccess
-!assets/cache/index.php
