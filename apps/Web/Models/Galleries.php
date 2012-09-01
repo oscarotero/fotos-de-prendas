@@ -46,6 +46,9 @@ class Galleries {
 
 			rename($photo['tmp_name'], $file);
 			chmod($file, 0755);
+
+			$Imagecow = \Imagecow\Image::create();
+			$Imagecow->load($file)->resize(1200, 1200)->save();
 		}
 	}
 }
