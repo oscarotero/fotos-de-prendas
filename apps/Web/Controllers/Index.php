@@ -70,8 +70,7 @@ class Index {
 	/**
 	 * @router method post
 	 */
-	public function subirFotos () {
-		$nome = urldecode($this->Request->Post->get('nome'));
+	public function subirFotos ($nome) {
 		$foto = $this->Request->Files->get('userfile');
 
 		$this->Galleries->uploadPhoto($nome, $foto);
