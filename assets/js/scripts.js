@@ -34,6 +34,9 @@ $(document).ready(function () {
 				$input.slideUp('normal', function () {
 					document.location.href = document.location.href;
 				});
+			},
+			rename: function (name) {
+				return name.toLowerCase();
 			}
 		});
 

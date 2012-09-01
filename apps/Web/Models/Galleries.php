@@ -42,7 +42,7 @@ class Galleries {
 
 	public function uploadPhoto ($gallery, $photo) {
 		if ($this->exists($gallery)) {
-			$file = $this->path.$gallery.'/'.$photo['name'];
+			$file = $this->path.$gallery.'/'.strtolower($photo['name']);
 
 			if (rename($photo['tmp_name'], $file) === false) {
 				return false;
