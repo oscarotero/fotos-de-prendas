@@ -19,9 +19,6 @@ $(document).ready(function () {
 			maxfiles: 200,
 			maxfilesize: 100,
 			allowedfiletypes: ['image/jpg', 'image/jpeg'],
-			data: {
-				nome: $input.data('nome')
-			},
 			globalProgressUpdated: function (progress) {
 				$progress.prop('value', progress);
 			},

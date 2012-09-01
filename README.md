@@ -13,6 +13,5 @@ Por exemplo: un grupo de amigos que quere subir e intercambiar as suas fotos de 
 Instalacion
 -----------
 
-* Descargar o proxecto
-* Executar o composer para instalar dependencias: ```$ curl -s https://getcomposer.org/installer | php``` ```$ php composer.phar install```
+* Executar composer para descargar o proxecto e as suas dependencias: ```$ curl -s https://getcomposer.org/installer | php``` ```$ php composer.phar create-project fol/galerias```
 * Asegurate que os directorios assets/cache e assets/fotos teñen permiso de escritura
