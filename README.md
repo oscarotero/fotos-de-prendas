@@ -15,3 +15,4 @@ Instalacion
 
 * Descargar o proxecto
 * Executar o composer para instalar dependencias: ```$ curl -s https://getcomposer.org/installer | php``` ```$ php composer.phar install```
+* Asegurate que os directorios assets/cache e assets/fotos teñen permiso de escritura
