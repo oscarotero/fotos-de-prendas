@@ -1,9 +1,9 @@
 {
-	"name": "fol/fol",
+	"name": "fol/galerias",
 	"type": "library",
-	"description": "PHP framework",
-	"keywords": ["framework"],
-	"homepage": "https://github.com/oscarotero/fol",
+	"description": "PHP photo gallery built on Fol",
+	"keywords": ["photo", "gallery"],
+	"homepage": "https://github.com/oscarotero/Galerias",
 	"license": "AGPL-3.0",
 	"authors": [
 		{
@@ -15,7 +15,7 @@
 	],
 	"support": {
 		"email": "oom@oscarotero.com",
-		"issues": "https://github.com/oscarotero/Fol/issues"
+		"issues": "https://github.com/oscarotero/Galerias/issues"
 	},
 	"require": {
 		"php": ">=5.4.0",
