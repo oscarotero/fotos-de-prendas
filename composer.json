@@ -1,0 +1,28 @@
+{
+	"name": "fol/fol",
+	"type": "library",
+	"description": "PHP framework",
+	"keywords": ["framework"],
+	"homepage": "https://github.com/oscarotero/fol",
+	"license": "AGPL-3.0",
+	"authors": [
+		{
+			"name": "Oscar Otero",
+			"email": "oom@oscarotero.com",
+			"homepage": "http://oscarotero.com",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"email": "oom@oscarotero.com",
+		"issues": "https://github.com/oscarotero/Fol/issues"
+	},
+	"require": {
+		"php": ">=5.4.0",
+		"stylecow/stylecow": "*",
+		"imagecow/imagecow": "*"
+	},
+	"config": {
+		"vendor-dir": "libs"
+	}
+}
