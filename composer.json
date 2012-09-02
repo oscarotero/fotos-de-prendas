@@ -1,6 +1,6 @@
 {
 	"name": "fol/galerias",
-	"type": "library",
+	"type": "fol-app",
 	"description": "PHP photo gallery built on Fol",
 	"keywords": ["photo", "gallery"],
 	"homepage": "https://github.com/oscarotero/Galerias",
@@ -19,6 +19,7 @@
 	},
 	"require": {
 		"php": ">=5.4.0",
+		"fol/app-installer": "dev-master",
 		"stylecow/stylecow": "*",
 		"imagecow/imagecow": "*"
 	},
