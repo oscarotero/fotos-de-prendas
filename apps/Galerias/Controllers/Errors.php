@@ -1,5 +1,5 @@
 <?php
-namespace Apps\Web\Controllers;
+namespace Apps\Galerias\Controllers;
 
 use Fol\Http\Response;
 

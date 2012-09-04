@@ -1,5 +1,5 @@
 <?php
-namespace Apps\Web\Models;
+namespace Apps\Galerias\Models;
 
 class Galleries {
 	private $path;

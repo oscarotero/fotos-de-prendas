@@ -1,5 +1,5 @@
 <?php
-namespace Apps\Web\Controllers;
+namespace Apps\Galerias\Controllers;
 
 use Fol\Http\HttpException;
 use Fol\Http\Response;
@@ -15,7 +15,7 @@ class Index {
 		$this->Templates->App = $App;
 		$this->Templates->Controller = $this;
 
-		$this->Galleries = new \Apps\Web\Models\Galleries($this->App->assetsPath.'fotos/');
+		$this->Galleries = new \Apps\Galerias\Models\Galleries($this->App->assetsPath.'fotos/');
 		$this->titulo = 'Fotos de prendas';
 	}
 

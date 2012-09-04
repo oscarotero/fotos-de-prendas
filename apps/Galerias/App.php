@@ -1,7 +1,8 @@
 <?php
-namespace Apps\Web;
+namespace Apps\Galerias;
 
 class App extends \Fol\App {
 	use \Fol\AppsTraits\SimpleRouter;
+	use \Fol\AppsTraits\PreprocessedFileRouter;
 }
 ?>

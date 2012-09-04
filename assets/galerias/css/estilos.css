@@ -137,6 +137,13 @@ section {
 		list-style: none;
 		margin: 0 auto;
 		font-size: 1.4em;
+		line-height: 1;
 		column-width: 200px;
+
+		li {
+			margin-bottom: 15px;
+			display: inline-block;
+			width: 100%;
+		}
 	}
 }
