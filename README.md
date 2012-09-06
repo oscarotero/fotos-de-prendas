@@ -17,3 +17,4 @@ Instalacion (usando Composer)
 * Agora instalamos Fol ```$ php composer.phar create-project fol/fol galerias```
 * Entramos no directorio e instalamos Galerias ```$ cd galerias``` ```$ php ../composer.phar require fol/galerias```
 * Listo. Asegurate que os directorios assets/galerias/cache e assets/galerias/fotos teñen permiso de escritura
+* Se queres que esta sexa a aplicación "pai", debes editar o arquivo index.php de Fol, en vez de instanciar Apps\Web\App, instanciar Apps\Galerias\App, ou sexa: ```(new Apps\Galerias\App)->handle(Request::createFromGlobals())->send();```
