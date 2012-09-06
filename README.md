@@ -10,8 +10,10 @@ Por exemplo: un grupo de amigos que quere subir e intercambiar as suas fotos de 
 * Crea miniaturas automaticamente. Redimensiona as fotos subidas a un tamaño máximo de 1200px para aforrar espazo.
 * Chrome/Firefox
 
-Instalacion
------------
+Instalacion (usando Composer)
+-----------------------------
 
-* Executar composer para descargar o proxecto e as suas dependencias: ```$ curl -s https://getcomposer.org/installer | php``` ```$ php composer.phar create-project fol/galerias```
-* Asegurate que os directorios assets/galerias/cache e assets/galerias/fotos teñen permiso de escritura
+* Descargamos composer ```$ curl -s https://getcomposer.org/installer | php```
+* Agora instalamos Fol ```$ php composer.phar create-project fol/fol galerias```
+* Entramos no directorio e instalamos Galerias ```$ cd galerias``` ```$ php ../composer.phar require fol/galerias```
+* Listo. Asegurate que os directorios assets/galerias/cache e assets/galerias/fotos teñen permiso de escritura

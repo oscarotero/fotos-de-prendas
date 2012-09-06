@@ -23,8 +23,5 @@
 		"stylecow/stylecow": "*",
 		"imagecow/imagecow": "*"
 	},
-	"config": {
-		"vendor-dir": "libs"
-	},
 	"minimum-stability": "dev"
 }
