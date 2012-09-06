@@ -23,5 +23,11 @@
 		"stylecow/stylecow": "*",
 		"imagecow/imagecow": "*"
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+	"extra": {
+		"chmod": {
+			"assets/galerias/cache": "0777",
+			"assets/galerias/fotos": "0777"
+		}
+	}
 }
