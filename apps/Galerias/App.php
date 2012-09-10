@@ -15,7 +15,7 @@ class App extends \Fol\App {
 		));
 
 		//Merge with the user settings
-		$this->Config->merge('settings');
+		$this->Config->load('settings', true);
 	}
 }
 ?>
