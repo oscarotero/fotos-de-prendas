@@ -49,7 +49,7 @@ class Files {
 
 		if (is_file($filename)) {
 			$Image = \Imagecow\Image::create();
-			$Image->load($filename)->transform($operations);
+			$Image->load($filename)->transform($operations)->format($info['extension']);
 
 			if ($this->cache === true) {
 				$Image->save($this->App->getCacheFilePath($file));

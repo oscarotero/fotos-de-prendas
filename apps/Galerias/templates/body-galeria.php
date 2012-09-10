@@ -27,7 +27,7 @@ var jsData = <?php echo json_encode(array(
 		<?php foreach ($fotos as $k => $foto): ?>
 		<li contextmenu="cmenu_<?php echo $k; ?>">
 			<a href="<?php echo $this->App->assetsUrl.'fotos/'.$galeria['nome'].'/'.$foto; ?>" class="fancybox" rel="galeria">
-				<img src="<?php echo $this->App->assetsUrl.'cache/fotos/'.$galeria['nome'].'/'.$foto.'/resize,300'; ?>" alt="Foto">
+				<img src="<?php echo $this->App->assetsUrl.'cache/fotos/'.$galeria['nome'].'/'.$foto.'/resize,300.jpg'; ?>" alt="Foto">
 			</a>
 
 			<menu type="context" id="cmenu_<?php echo $k; ?>">
