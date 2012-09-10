@@ -9,6 +9,8 @@
 		<p>Solo imaxes (jpg). Máximo 100 megas e 100 arquivos ao mesmo tempo</p>
 
 		<progress max="100" class="hidden"></progress>
+
+		<ul id="engadir-fotos-miniaturas"></ul>
 	</div>
 
 	<ul class="fotos">

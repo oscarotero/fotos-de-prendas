@@ -12,6 +12,7 @@ $(document).ready(function () {
 
 	$('#engadir-fotos-boton').click(function () {
 		var $input = $('#engadir-fotos-input');
+		var $miniaturas = $('#engadir-fotos-miniaturas');
 		var $progress = $input.find('progress').removeProp('value');
 
 		$input.slideToggle('normal').filedrop({
@@ -56,7 +57,10 @@ $(document).ready(function () {
 			uploadFinished: function (i, file, response, time) {
 				if (response.error) {
 					alert(file.name + ' devolveu o seguinte erro: ' + response.error);
+					return;
 				}
+
+				$miniaturas.append('<li><img src="' + response.thumb + '" height="50"></li>');
 			}
 		});
 

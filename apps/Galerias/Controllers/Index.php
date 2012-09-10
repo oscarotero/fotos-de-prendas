@@ -88,7 +88,8 @@ class Index {
 
 		if ($this->Galleries->uploadPhoto($nome, $foto)) {
 			$Response->setContent(json_encode(array(
-				'success' => 'Foto subida'
+				'success' => 'Foto subida',
+				'thumb' => $this->App->assetsUrl.'cache/fotos/'.$nome.'/resize,300__'.$foto['name']
 			)));
 
 			return $Response;
