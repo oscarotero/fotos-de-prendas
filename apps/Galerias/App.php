@@ -14,8 +14,8 @@ class App extends \Fol\App {
 			'cache' => false
 		));
 
-		//Load user settings
-		$this->Config->load('settings');
+		//Merge with the user settings
+		$this->Config->merge('settings');
 	}
 }
 ?>
