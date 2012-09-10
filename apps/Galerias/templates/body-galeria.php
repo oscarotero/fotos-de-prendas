@@ -4,7 +4,7 @@
 		<a id="engadir-fotos-boton" class="boton" href="#">Engadir fotos...</a>
 	</header>
 
-	<div id="engadir-fotos-input" class="zona-dragdrop hidden" data-url="<?php echo $this->App->url; ?>subir-fotos/<?php echo $galeria['nome']; ?>">
+	<div id="engadir-fotos-input" class="zona-dragdrop hidden" data-url="<?php echo $this->App->url; ?>subir-fotos/<?php echo $galeria['nome']; ?>" data-maxfilesize="<?php echo intval(ini_get('upload_max_filesize')); ?>">
 		Arrastra aqui as fotos que queiras subir
 		<p>Solo imaxes (jpg). Máximo 100 megas e 100 arquivos ao mesmo tempo</p>
 

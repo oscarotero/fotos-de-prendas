@@ -18,7 +18,7 @@ $(document).ready(function () {
 		$input.slideToggle('normal').filedrop({
 			url: $input.data('url'),
 			maxfiles: 200,
-			maxfilesize: 100,
+			maxfilesize: $input.data('maxfilesize'),
 			allowedfiletypes: ['image/jpg', 'image/jpeg'],
 			error: function(err, file) {
 				switch(err) {
@@ -31,7 +31,7 @@ $(document).ready(function () {
 						break;
 
 					case 'FileTooLarge':
-						alert(file.name + ' é demasiado grande para subilo');
+						alert(file.name + ' é demasiado grande para subilo (' + $input.data('maxfilesize') + ' Mb máximo)');
 						break;
 
 					case 'FileTypeNotAllowed':
