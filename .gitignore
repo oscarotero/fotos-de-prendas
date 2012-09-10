@@ -1,4 +1,5 @@
 libs/*
+.htaccess
 bootstrap.php
 index.php
 composer.lock
