@@ -9,6 +9,7 @@ class Files {
 	public function __construct ($App, $Request) {
 		$this->App = $App;
 		$this->Request = $Request;
+		$this->cache = $App->Config->get('settings')['cache'];
 	}
 
 	public function css ($file) {

@@ -1,22 +1,22 @@
 <?php
 namespace Apps\Galerias\Controllers;
 
+use Fol\App;
 use Fol\Http\HttpException;
+use Fol\Http\Request;
 use Fol\Http\Response;
 use Fol\Templates;
 
 class Index {
 
-	public function __construct ($App, $Request) {
+	public function __construct (App $App, Request $Request) {
 		$this->App = $App;
 		$this->Request = $Request;
 
 		$this->Templates = new Templates($this->App->path.'templates');
 		$this->Templates->App = $App;
-		$this->Templates->Controller = $this;
 
 		$this->Galleries = new \Apps\Galerias\Models\Galleries($this->App->assetsPath.'fotos/');
-		$this->titulo = 'Fotos de prendas';
 	}
 
 
@@ -24,9 +24,9 @@ class Index {
 		$this->Templates->register('body', 'body-index.php');
 
 		return $this->Templates->render('html.php', array(
-			'titulo' => $this->titulo,
+			'titulo' => $this->App->Config->get('settings')['title'],
 			'data' => array(
-				'titulo' => $this->titulo,
+				'titulo' => $this->App->Config->get('settings')['title'],
 				'galerias' => $this->Galleries->get()
 			)
 		));
@@ -41,8 +41,9 @@ class Index {
 		$this->Templates->register('body', 'body-galeria.php');
 
 		return $this->Templates->render('html.php', array(
-			'titulo' => $this->titulo.' » '.$nome,
+			'titulo' => $this->App->Config->get('settings')['title'].' » '.$nome,
 			'data' => array(
+				'titulo' => $this->App->Config->get('settings')['title'],
 				'galeria' => array(
 					'nome' => $nome
 				),

@@ -10,13 +10,13 @@ var jsData = <?php echo json_encode(array(
 
 <section class="galeria">
 	<header>
-		<h1><a href="<?php echo $this->App->url; ?>"><?php echo $this->Controller->titulo; ?></a> / <?php echo $galeria['nome']; ?></h1>
+		<h1><a href="<?php echo $this->App->url; ?>"><?php echo $titulo; ?></a> / <?php echo $galeria['nome']; ?></h1>
 		<a id="engadir-fotos-boton" class="boton" href="#">Engadir fotos...</a>
 	</header>
 
 	<div id="engadir-fotos-input" class="zona-dragdrop hidden" data-url="<?php echo $this->App->url; ?>subir-fotos/<?php echo $galeria['nome']; ?>">
 		Arrastra aqui as fotos que queiras subir
-		<p>Só imaxes (jpg) e cun máximo <?php echo $max; ?>Mb por imaxe.</p>
+		<p>Só imaxes (jpg) e cun máximo de <?php echo $max; ?>Mb por imaxe.</p>
 
 		<progress max="100" class="hidden"></progress>
 
