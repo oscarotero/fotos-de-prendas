@@ -102,5 +102,15 @@ class Index {
 
 		return $Response;
 	}
+
+
+	/**
+	 * @router method post
+	 */
+	public function xirarFotos ($nome) {
+		$foto = $this->Request->Post->get('file');
+		$this->Galleries->rotatePhoto($nome, $foto);
+		$this->App->removeCache('fotos/'.$nome.'/'.$foto);
+	}
 }
 ?>

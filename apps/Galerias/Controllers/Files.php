@@ -21,7 +21,7 @@ class Files {
 		));
 
 		if ($this->cache === true) {
-			file_put_contents($this->cachePath($file), $Stylecow->toString());
+			file_put_contents($this->App->getCacheFilePath($file), $Stylecow->toString());
 		}
 
 		$Response = new Response($Stylecow->toString());
@@ -44,35 +44,19 @@ class Files {
 
 	private function image ($file) {
 		$info = pathinfo($file);
+		$filename = $this->App->assetsPath.'/'.$info['dirname'];
+		$operations = $info['filename'];
 
-		if (strpos($info['filename'], '__')) {
-			list($operations, $filename) = explode('__', $info['filename'], 2);
-		}
-
-		$filepath = $this->App->assetsPath.$info['dirname'].'/'.$filename.'.'.$info['extension'];
-
-		if (is_file($filepath)) {
+		if (is_file($filename)) {
 			$Image = \Imagecow\Image::create();
-
-			$Image->load($filepath)->transform($operations);
+			$Image->load($filename)->transform($operations);
 
 			if ($this->cache === true) {
-				$file = $this->cachePath($file);
-				$Image->save($file);
+				$Image->save($this->App->getCacheFilePath($file));
 			}
 
 			$Image->show();
 		}
-	}
-
-	private function cachePath ($file) {
-		$path = dirname($file);
-
-		if (!is_dir($this->App->assetsPath.'cache/'.$path)) {
-			mkdir($this->App->assetsPath.'cache/'.$path, 0777, true);
-		}
-
-		return $this->App->assetsPath.'cache/'.$file;
 	}
 }
 ?>

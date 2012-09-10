@@ -16,9 +16,9 @@ $(document).ready(function () {
 		var $progress = $input.find('progress').removeProp('value');
 
 		$input.slideToggle('normal').filedrop({
-			url: $input.data('url'),
+			url: jsData.urlBase + 'subir-fotos/' + jsData.galeria,
 			maxfiles: 200,
-			maxfilesize: $input.data('maxfilesize'),
+			maxfilesize: jsData.maxfilesize,
 			allowedfiletypes: ['image/jpg', 'image/jpeg'],
 			error: function(err, file) {
 				switch(err) {
@@ -31,7 +31,7 @@ $(document).ready(function () {
 						break;
 
 					case 'FileTooLarge':
-						alert(file.name + ' é demasiado grande para subilo (' + $input.data('maxfilesize') + ' Mb máximo)');
+						alert(file.name + ' é demasiado grande para subilo (' + jsData.maxfilesize + ' Mb máximo)');
 						break;
 
 					case 'FileTypeNotAllowed':
@@ -66,6 +66,15 @@ $(document).ready(function () {
 
 		return false;
 	});
+
+	rotate = function (name, index) {
+		$.post(jsData.urlBase + 'xirar-fotos/' + jsData.galeria, {
+			file: name
+		}, function () {
+			var $img = $('#cmenu_' + index).siblings('a.fancybox').children('img');
+			$img.prop('src', $img.prop('src') + '?' + $.now());
+		});
+	};
 
 	$(document).on('dragenter', function () {
 		if ($('#engadir-fotos-input').is(':hidden')) {

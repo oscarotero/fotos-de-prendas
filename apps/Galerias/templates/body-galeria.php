@@ -1,6 +1,12 @@
-<?php
-$max = intval(ini_get('upload_max_filesize'));
-?>
+<?php $max = intval(ini_get('upload_max_filesize')); ?>
+
+<script type="text/javascript" charset="utf-8">
+var jsData = <?php echo json_encode(array(
+	'urlBase' => $this->App->url,
+	'maxfilesize' => $max,
+	'galeria' => $galeria['nome']
+)); ?>;
+</script>
 
 <section class="galeria">
 	<header>
@@ -8,7 +14,7 @@ $max = intval(ini_get('upload_max_filesize'));
 		<a id="engadir-fotos-boton" class="boton" href="#">Engadir fotos...</a>
 	</header>
 
-	<div id="engadir-fotos-input" class="zona-dragdrop hidden" data-url="<?php echo $this->App->url; ?>subir-fotos/<?php echo $galeria['nome']; ?>" data-maxfilesize="<?php echo $max; ?>">
+	<div id="engadir-fotos-input" class="zona-dragdrop hidden" data-url="<?php echo $this->App->url; ?>subir-fotos/<?php echo $galeria['nome']; ?>">
 		Arrastra aqui as fotos que queiras subir
 		<p>Solo imaxes (jpg). Máximo 200 arquivos ao mesmo tempo e <?php echo $max; ?>Mb cada un.</p>
 
@@ -18,11 +24,15 @@ $max = intval(ini_get('upload_max_filesize'));
 	</div>
 
 	<ul class="fotos">
-		<?php foreach ($fotos as $foto): ?>
-		<li>
+		<?php foreach ($fotos as $k => $foto): ?>
+		<li contextmenu="cmenu_<?php echo $k; ?>">
 			<a href="<?php echo $this->App->assetsUrl.'fotos/'.$galeria['nome'].'/'.$foto; ?>" class="fancybox" rel="galeria">
-				<img src="<?php echo $this->App->assetsUrl.'cache/fotos/'.$galeria['nome'].'/resize,300__'.$foto; ?>" alt="">
+				<img src="<?php echo $this->App->assetsUrl.'cache/fotos/'.$galeria['nome'].'/'.$foto.'/resize,300'; ?>" alt="Foto">
 			</a>
+
+			<menu type="context" id="cmenu_<?php echo $k; ?>">
+				<menuitem label="Xirar 90º cara a dereita" onclick="rotate('<?php echo $foto; ?>', <?php echo $k ?>);"></menuitem>
+			</menu>
 		</li>
 		<?php endforeach; ?>
 	</ul>

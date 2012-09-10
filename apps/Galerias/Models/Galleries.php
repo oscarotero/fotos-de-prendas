@@ -58,4 +58,19 @@ class Galleries {
 
 		return false;
 	}
+
+	public function rotatePhoto ($gallery, $photo) {
+		if ($this->exists($gallery)) {
+			$file = $this->path.$gallery.'/'.$photo;
+
+			if (is_file($file)) {
+				$Imagecow = \Imagecow\Image::create();
+				$Imagecow->load($file)->rotate(-90)->save();
+
+				return true;
+			}
+		}
+
+		return false;
+	}
 }
