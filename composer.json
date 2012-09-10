@@ -29,5 +29,8 @@
 			"assets/galerias/cache": "0777",
 			"assets/galerias/fotos": "0777"
 		}
+	},
+	"config": {
+		"vendor-dir": "libs"
 	}
 }

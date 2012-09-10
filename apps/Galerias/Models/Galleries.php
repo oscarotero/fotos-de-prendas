@@ -44,7 +44,7 @@ class Galleries {
 		if ($this->exists($gallery)) {
 			$file = $this->path.$gallery.'/'.strtolower($photo['name']);
 
-			if (rename($photo['tmp_name'], $file) === false) {
+			if ($photo['error'] !== 0 || rename($photo['tmp_name'], $file) === false) {
 				return false;
 			}
 

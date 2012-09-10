@@ -20,10 +20,25 @@ $(document).ready(function () {
 			maxfilesize: 100,
 			allowedfiletypes: ['image/jpg', 'image/jpeg'],
 			error: function(err, file) {
-				if (err === 'BrowserNotSupported') {
-					alert('Non podes subir arquivos porque o teu navegador é antigo');
+				switch(err) {
+					case 'BrowserNotSupported':
+						alert('Non podes subir arquivos porque o teu navegador é antigo. Usa firefox ou chrome');
+						break;
+
+					case 'TooManyFiles':
+						alert('Non podes subir tantos arquivos ao mesmo tempo');
+						break;
+
+					case 'FileTooLarge':
+						alert(file.name + ' é demasiado grande para subilo');
+						break;
+
+					case 'FileTypeNotAllowed':
+						alert(file.name + 'Non se pode subir porque non están soportados arquivos dese tipo');
+					default:
+						break;
 				}
-		    },
+			},
 			globalProgressUpdated: function (progress) {
 				$progress.prop('value', progress);
 			},
@@ -37,6 +52,11 @@ $(document).ready(function () {
 			},
 			rename: function (name) {
 				return name.toLowerCase();
+			},
+			uploadFinished: function (i, file, response, time) {
+				if (response.error) {
+					alert(file.name + ' devolveu o seguinte erro: ' + response.error);
+				}
 			}
 		});
 

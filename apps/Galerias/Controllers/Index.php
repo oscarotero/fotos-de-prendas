@@ -71,13 +71,35 @@ class Index {
 	 * @router method post
 	 */
 	public function subirFotos ($nome) {
+		$Response = new Response;
+		$Response->setContentType('json');
+
+		if ($this->Request->Files->hasError('userfile')) {
+			$Response->setStatus(500);
+			$Response->setContent(json_encode(array(
+				'error' => $this->Request->Files->getErrorMessage('userfile'),
+				'errorCode' => $this->Request->Files->getErrorCode('userfile')
+			)));
+
+			return $Response;
+		}
+
 		$foto = $this->Request->Files->get('userfile');
 
 		if ($this->Galleries->uploadPhoto($nome, $foto)) {
-			return 'Foto subida';
+			$Response->setContent(json_encode(array(
+				'success' => 'Foto subida'
+			)));
+
+			return $Response;
 		}
 
-		return 'Non se subiu a foto '.$nome;
+		$Response->setStatus(500);
+		$Response->setContent(json_encode(array(
+			'error' => 'Non se subiu a foto '.$nome
+		)));
+
+		return $Response;
 	}
 }
 ?>
