@@ -18,7 +18,7 @@ var jsData = <?php echo json_encode(array(
 		Arrastra aqui as fotos que queiras subir
 		<p>Só imaxes (jpg) e cun máximo de <?php echo $max; ?>Mb por imaxe.</p>
 
-		<progress max="100" class="hidden"></progress>
+		<progress max="1" class="hidden"></progress>
 
 		<ul id="engadir-fotos-miniaturas"></ul>
 	</div>

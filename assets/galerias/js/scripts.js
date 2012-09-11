@@ -14,6 +14,7 @@ $(document).ready(function () {
 		var $input = $('#engadir-fotos-input');
 		var $miniaturas = $('#engadir-fotos-miniaturas');
 		var $progress = $input.find('progress').removeProp('value');
+		var globalProgress = [];
 
 		$input.slideToggle('normal').filedrop({
 			url: jsData.urlBase + 'subir-fotos/' + jsData.galeria,
@@ -40,8 +41,17 @@ $(document).ready(function () {
 						break;
 				}
 			},
-			globalProgressUpdated: function (progress) {
-				$progress.prop('value', progress);
+			uploadStarted: function (i, file, len) {
+				if ($progress.prop('max') === 1) {
+					$progress.prop('max', (len * 100));
+				}
+
+				globalProgress[i] = 0;
+				updateProgress($progress, globalProgress);
+			},
+			progressUpdated: function (i, file, progress) {
+				globalProgress[i] = progress;
+				updateProgress($progress, globalProgress);
 			},
 			drop: function () {
 				$progress.show();
@@ -60,12 +70,26 @@ $(document).ready(function () {
 					return;
 				}
 
+				globalProgress[i] = 100;
+
+				updateProgress($progress, globalProgress);
+
 				$miniaturas.append('<li><img src="' + response.thumb + '" height="50"></li>');
 			}
 		});
 
 		return false;
 	});
+	
+	var updateProgress = function ($progress, progress) {
+		var value = 0;
+
+		for (var key in progress) {
+			value += (progress[key] * 1);
+		}
+
+		$progress.prop('value', value);
+	}
 
 	rotate = function (name, index) {
 		$.post(jsData.urlBase + 'xirar-fotos/' + jsData.galeria, {

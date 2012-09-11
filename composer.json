@@ -21,7 +21,8 @@
 		"php": ">=5.4.0",
 		"fol/app-installer": "dev-master",
 		"stylecow/stylecow": "*",
-		"imagecow/imagecow": "*"
+		"imagecow/imagecow": "*",
+		"knplabs/gaufrette": "*"
 	},
 	"minimum-stability": "dev",
 	"extra": {
