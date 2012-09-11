@@ -8,7 +8,7 @@ Por exemplo: un grupo de amigos que quere subir e intercambiar as suas fotos de 
 * Feito co framework Fol (https://github.com/oscarotero/Fol/)
 * As fotos súbense directamente mediante drag and drop
 * Crea miniaturas automaticamente. Redimensiona as fotos subidas a un tamaño máximo de 1200px para aforrar espazo.
-* Chrome/Firefox
+* Funciona ben en Chrome/Firefox/Opera (Safari non permite subir novas fotos e Internet Explorer non soporta CSS columns)
 
 Instalacion (usando Composer)
 -----------------------------
