@@ -18,7 +18,7 @@ $(document).ready(function () {
 
 		$input.slideToggle('normal').filedrop({
 			url: jsData.urlBase + 'subir-fotos/' + jsData.galeria,
-			queuefiles: 5,
+			queuefiles: 3,
 			maxfilesize: jsData.maxfilesize,
 			allowedfiletypes: ['image/jpg', 'image/jpeg'],
 			error: function(err, file) {
