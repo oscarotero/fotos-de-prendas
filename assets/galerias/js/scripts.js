@@ -1,4 +1,6 @@
 $(document).ready(function () {
+	var subindo = false;
+
 	$('.fancybox').fancybox({
 		padding: 5
 	});
@@ -42,6 +44,8 @@ $(document).ready(function () {
 				}
 			},
 			uploadStarted: function (i, file, len) {
+				subindo = true;
+
 				if ($progress.prop('max') === 1) {
 					$progress.prop('max', (len * 100));
 				}
@@ -57,6 +61,8 @@ $(document).ready(function () {
 				$progress.show();
 			},
 			afterAll: function () {
+				subindo = false;
+
 				$input.slideUp('normal', function () {
 					document.location.href = document.location.href;
 				});
@@ -99,6 +105,12 @@ $(document).ready(function () {
 			$img.prop('src', $img.prop('src') + '?' + $.now());
 		});
 	};
+
+	$(window).on('beforeunload', function () {
+		if (subindo === true) {
+			return 'Agora mesmo estanse subindo fotos. De verdade queres saír?';
+		}
+	});
 
 	$(document).on('dragenter', function () {
 		if ($('#engadir-fotos-input').is(':hidden')) {
