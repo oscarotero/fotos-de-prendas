@@ -113,5 +113,9 @@ class Index {
 		$this->Galleries->rotatePhoto($nome, $foto);
 		$this->App->removeCache('fotos/'.$nome.'/'.$foto);
 	}
+
+	public function error ($Exception) {
+		return new Response($Exception->getMessage(), $Exception->getCode());
+	}
 }
 ?>
