@@ -36,12 +36,8 @@ class Galleries {
 		$list = array();
 
 		foreach ($photos as $photo) {
-			list($width, $height) = getimagesize($photo);
-
 			$list[] = array(
-				'file' => substr($photo, $limit),
-				'width' => $width,
-				'height' => $height
+				'file' => substr($photo, $limit)
 			);
 		}
 
