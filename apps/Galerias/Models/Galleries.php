@@ -33,11 +33,19 @@ class Galleries {
 		$photos = glob($this->path.$gallery.'/*.jpg');
 		$limit = strlen($this->path.$gallery.'/');
 
-		foreach ($photos as &$photo) {
-			$photo = substr($photo, $limit);
+		$list = array();
+
+		foreach ($photos as $photo) {
+			list($width, $height) = getimagesize($photo);
+
+			$list[] = array(
+				'file' => substr($photo, $limit),
+				'width' => $width,
+				'height' => $height
+			);
 		}
 
-		return $photos;
+		return $list;
 	}
 
 	public function uploadPhoto ($gallery, $photo) {

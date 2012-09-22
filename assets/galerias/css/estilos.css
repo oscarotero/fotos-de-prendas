@@ -121,6 +121,7 @@ section {
 
 			img {
 				width: 100%;
+				height: auto !important;
 				display: block;
 				border-radius: 5px;
 				transition: transform 0.2s;
