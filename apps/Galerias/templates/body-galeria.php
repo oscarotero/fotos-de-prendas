@@ -15,8 +15,9 @@ var jsData = <?php echo json_encode(array(
 	</header>
 
 	<div id="engadir-fotos-input" class="zona-dragdrop hidden" data-url="<?php echo $this->App->url; ?>subir-fotos/<?php echo $galeria['nome']; ?>">
-		Arrastra aqui as fotos que queiras subir
-		<p>Só imaxes (jpg) e cun máximo de <?php echo $max; ?>Mb por imaxe.</p>
+		<div id="mensaxe">Arrastra aqui as fotos que queiras subir
+			<p>Só imaxes (jpg) e cun máximo de <?php echo $max; ?>Mb por imaxe.</p>
+		</div>
 
 		<progress max="1" class="hidden"></progress>
 

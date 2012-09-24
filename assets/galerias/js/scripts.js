@@ -46,6 +46,13 @@ $(document).ready(function () {
 			uploadStarted: function (i, file, len) {
 				subindo = true;
 
+				if (len === 1) {
+					$('#mensaxe').html('Subindo archivo...');
+				} else {
+					$('#mensaxe').html('Subindo ' + len + ' archivos...');
+				}
+				
+
 				if ($progress.prop('max') === 1) {
 					$progress.prop('max', (len * 100));
 				}
