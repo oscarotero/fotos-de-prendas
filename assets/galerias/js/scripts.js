@@ -104,12 +104,33 @@ $(document).ready(function () {
 		$progress.prop('value', value);
 	}
 
-	rotate = function (name, index) {
+	rotateImg = function (name, index) {
+		var $img = $('#cmenu_' + index).siblings('a.fancybox').children('img');
+
+		$img.fadeTo('normal', 0.3);
+
 		$.post(jsData.urlBase + 'xirar-fotos/' + jsData.galeria, {
 			file: name
 		}, function () {
-			var $img = $('#cmenu_' + index).siblings('a.fancybox').children('img');
-			$img.prop('src', $img.prop('src') + '?' + $.now());
+			$img.prop('src', $img.prop('src') + '?' + $.now()).load(function () {
+				$img.fadeTo('normal', 1);
+			});
+		});
+	};
+
+	deleteImg = function (name, index) {
+		if (!confirm('Estas seguro que queres eliminar esta foto?')) {
+			return;
+		}
+
+		var $img = $('#cmenu_' + index).siblings('a.fancybox').children('img');
+
+		$img.parents('li').fadeOut('normal', function () {
+			$(this).remove();
+		});
+
+		$.post(jsData.urlBase + 'eliminar-fotos/' + jsData.galeria, {
+			file: name
 		});
 	};
 

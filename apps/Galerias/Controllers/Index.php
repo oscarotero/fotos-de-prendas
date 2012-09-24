@@ -114,6 +114,16 @@ class Index {
 		$this->App->removeCache('fotos/'.$nome.'/'.$foto);
 	}
 
+
+	/**
+	 * @router method post
+	 */
+	public function eliminarFotos ($nome) {
+		$foto = $this->Request->Post->get('file');
+		$this->Galleries->deletePhoto($nome, $foto);
+		$this->App->removeCache('fotos/'.$nome.'/'.$foto);
+	}
+
 	public function error ($Exception) {
 		return new Response($Exception->getMessage(), $Exception->getCode());
 	}

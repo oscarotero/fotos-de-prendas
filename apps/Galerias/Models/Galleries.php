@@ -77,4 +77,16 @@ class Galleries {
 
 		return false;
 	}
+
+	public function deletePhoto ($gallery, $photo) {
+		if ($this->exists($gallery)) {
+			$file = $this->path.$gallery.'/'.$photo;
+
+			if (is_file($file)) {
+				return unlink($file);
+			}
+		}
+
+		return false;
+	}
 }

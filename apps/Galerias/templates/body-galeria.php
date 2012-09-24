@@ -32,7 +32,8 @@ var jsData = <?php echo json_encode(array(
 			</a>
 
 			<menu type="context" id="cmenu_<?php echo $k; ?>">
-				<menuitem label="Xirar 90º cara a dereita" onclick="rotate('<?php echo $foto['file']; ?>', <?php echo $k ?>);"></menuitem>
+				<menuitem label="Xirar 90º cara a dereita" onclick="rotateImg('<?php echo $foto['file']; ?>', <?php echo $k ?>);"></menuitem>
+				<menuitem label="Eliminar esta foto" onclick="deleteImg('<?php echo $foto['file']; ?>', <?php echo $k ?>);"></menuitem>
 			</menu>
 		</li>
 		<?php endforeach; ?>
