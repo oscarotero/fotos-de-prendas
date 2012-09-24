@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="<?php echo $this->App->assetsUrl; ?>../libs/fancybox/jquery.fancybox.css">
 		<link rel="stylesheet" href="<?php echo $this->App->assetsUrl; ?>cache/css/estilos.css">
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="<?php echo $this->App->assetsUrl; ?>../libs/fancybox/jquery.fancybox.pack.js" type="text/javascript" charset="utf-8"></script>
 		<script src="<?php echo $this->App->assetsUrl; ?>../libs/jquery.filedrop/jquery.filedrop.js" type="text/javascript" charset="utf-8"></script>
 		<script src="<?php echo $this->App->assetsUrl; ?>js/scripts.js" type="text/javascript" charset="utf-8"></script>
