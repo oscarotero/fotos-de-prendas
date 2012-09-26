@@ -61,10 +61,7 @@ class Index {
 
 		$this->Galleries->create($nome);
 
-		$Response = new Response;
-		$Response->redirect($this->App->url.'galeria/'.$nome);
-
-		return $Response;
+		return Response::createRedirect($this->App->url.'galeria/'.$nome);
 	}
 
 	
