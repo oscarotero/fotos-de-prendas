@@ -30,7 +30,7 @@
 			"galerias/assets/fotos": "0777"
 		},
 		"move": {
-			"galerias/common_assets/": "assets/"
+			"galerias/assets-root/": "assets/"
 		}
 	},
 	"autoload": {
