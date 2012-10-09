@@ -26,11 +26,16 @@
 	"minimum-stability": "dev",
 	"extra": {
 		"chmod": {
-			"assets/galerias/cache": "0777",
-			"assets/galerias/fotos": "0777"
+			"galerias/assets/cache": "0777",
+			"galerias/assets/fotos": "0777"
+		},
+		"move": {
+			"galerias/common_assets/": "assets/"
 		}
 	},
-	"config": {
-		"vendor-dir": "libs"
+	"autoload": {
+		"psr-0": {
+			"App\\Galerias": "galerias"
+		}
 	}
 }
