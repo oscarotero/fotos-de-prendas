@@ -26,8 +26,8 @@
 	"minimum-stability": "dev",
 	"extra": {
 		"chmod": {
-			"galerias/assets/cache": "0777",
-			"galerias/assets/fotos": "0777"
+			"apps/Galerias/assets/cache": "0777",
+			"apps/Galerias/assets/fotos": "0777"
 		},
 		"move": {
 			"apps/Galerias/assets-root/": "assets/"
