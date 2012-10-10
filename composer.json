@@ -30,12 +30,7 @@
 			"galerias/assets/fotos": "0777"
 		},
 		"move": {
-			"galerias/assets-root/": "assets/"
-		}
-	},
-	"autoload": {
-		"psr-0": {
-			"Apps\\Galerias": "."
+			"apps/Galerias/assets-root/": "assets/"
 		}
 	}
 }
