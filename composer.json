@@ -25,6 +25,7 @@
 	},
 	"minimum-stability": "dev",
 	"extra": {
+		"path": "apps/Galerias",
 		"chmod": {
 			"apps/Galerias/assets/cache": "0777",
 			"apps/Galerias/assets/fotos": "0777"
