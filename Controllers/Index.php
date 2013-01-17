@@ -21,15 +21,14 @@ class Index {
 
 
 	public function index () {
-		$this->Templates->register('body', 'body-index.php');
-
-		return $this->Templates->render('html.php', array(
+		$this->Templates->register('body', 'body-index.php', [
 			'titulo' => $this->App->Config->get('settings')['title'],
-			'data' => array(
-				'titulo' => $this->App->Config->get('settings')['title'],
-				'galerias' => $this->Galleries->get()
-			)
-		));
+			'galerias' => $this->Galleries->get()
+		]);
+
+		return $this->Templates->render('html.php', [
+			'titulo' => $this->App->Config->get('settings')['title']
+		]);
 	}
 
 
@@ -40,18 +39,18 @@ class Index {
 			throw new HttpException("Esta galería non existe", 404);
 		}
 
-		$this->Templates->register('body', 'body-galeria.php');
+		$this->Templates->register('body', 'body-galeria.php', [
+			'titulo' => $this->App->Config->get('settings')['title'],
+			'galeria' => array(
+				'nome' => $nome
+			),
+			'fotos' => $this->Galleries->getPhotos($nome),
+			'videos' => $this->Galleries->getVideos($nome)
+		]);
 
-		return $this->Templates->render('html.php', array(
-			'titulo' => $this->App->Config->get('settings')['title'].' » '.$nome,
-			'data' => array(
-				'titulo' => $this->App->Config->get('settings')['title'],
-				'galeria' => array(
-					'nome' => $nome
-				),
-				'fotos' => $this->Galleries->getPhotos($nome)
-			)
-		));
+		return $this->Templates->render('html.php', [
+			'titulo' => $this->App->Config->get('settings')['title'].' » '.$nome
+		]);
 	}
 
 

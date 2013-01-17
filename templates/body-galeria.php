@@ -24,6 +24,24 @@ var jsData = <?php echo json_encode(array(
 		<ul id="engadir-fotos-miniaturas"></ul>
 	</div>
 
+	<ul class="videos">
+		<?php foreach ($videos as $video): ?>
+		<li>
+			<video width="500" controls>
+				<source src="<?php echo $this->App->assetsUrl.'fotos/'.$galeria['nome'].'/'.$video['mp4']; ?>">
+
+				<?php if (isset($video['ogv'])): ?>
+				<source src="<?php echo $this->App->assetsUrl.'fotos/'.$galeria['nome'].'/'.$video['ogv']; ?>">
+				<?php endif; ?>
+
+				<?php if (isset($video['webm'])): ?>
+				<source src="<?php echo $this->App->assetsUrl.'fotos/'.$galeria['nome'].'/'.$video['webm']; ?>">
+				<?php endif; ?>
+			</video>
+		</li>
+		<?php endforeach; ?>
+	</ul>
+
 	<ul class="fotos">
 		<?php foreach ($fotos as $k => $foto): ?>
 		<li contextmenu="cmenu_<?php echo $k; ?>">

@@ -44,6 +44,35 @@ class Galleries {
 		return $list;
 	}
 
+	public function getVideos ($gallery) {
+		$videos_mp4 = glob($this->path.$gallery.'/*.mp4');
+		$videos_ogv = glob($this->path.$gallery.'/*.ogv');
+		$videos_webm = glob($this->path.$gallery.'/*.webm');
+		$limit = strlen($this->path.$gallery.'/');
+
+		$list = array();
+
+		foreach ($videos_mp4 as $video) {
+			$file = substr($video, 0, -4);
+
+			$item = [
+				'mp4' => substr($file, $limit).'.mp4'
+			];
+
+			if (($key = array_search("$file.ogg", $videos_ogv)) !== false) {
+				$item['ogg'] = substr($file, $limit).'.ogv';
+			}
+
+			if (($key = array_search("$file.webm", $videos_webm)) !== false) {
+				$item['webm'] = substr($file, $limit).'.webm';
+			}
+
+			$list[] = $item;
+		}
+
+		return $list;
+	}
+
 	public function uploadPhoto ($gallery, $photo) {
 		if ($this->exists($gallery)) {
 			$file = $this->path.$gallery.'/'.strtolower($photo['name']);

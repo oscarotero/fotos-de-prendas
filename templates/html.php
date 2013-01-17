@@ -18,6 +18,6 @@
 	</head>
 
 	<body>
-		<?php echo $this->render('body', $data); ?>
+		<?php echo $this->render('body'); ?>
 	</body>
 </html>
