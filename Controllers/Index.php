@@ -33,7 +33,9 @@ class Index {
 	}
 
 
-	public function galeria ($nome) {
+	public function galeria ($Request) {
+		$nome = $Request->Parameters->get(0);
+
 		if (!$this->Galleries->exists($nome)) {
 			throw new HttpException("Esta galería non existe", 404);
 		}
@@ -54,10 +56,10 @@ class Index {
 
 
 	/**
-	 * @router method post
+	 * @router method POST
 	 */
-	public function novaGaleria () {
-		$nome = $this->Request->Post->get('nome');
+	public function novaGaleria ($Request) {
+		$nome = $Request->Post->get('nome');
 
 		$this->Galleries->create($nome);
 
@@ -66,23 +68,24 @@ class Index {
 
 	
 	/**
-	 * @router method post
+	 * @router method POST
 	 */
-	public function subirFotos ($nome) {
+	public function subirFotos ($Request) {
+		$nome = $Request->Parameters->get(0);
 		$Response = new Response;
 		$Response->setContentType('json');
 
-		if ($this->Request->Files->hasError('userfile')) {
+		if ($Request->Files->hasError('userfile')) {
 			$Response->setStatus(500);
 			$Response->setContent(json_encode(array(
-				'error' => $this->Request->Files->getErrorMessage('userfile'),
-				'errorCode' => $this->Request->Files->getErrorCode('userfile')
+				'error' => $Request->Files->getErrorMessage('userfile'),
+				'errorCode' => $Request->Files->getErrorCode('userfile')
 			)));
 
 			return $Response;
 		}
 
-		$foto = $this->Request->Files->get('userfile');
+		$foto = $Request->Files->get('userfile');
 
 		if ($this->Galleries->uploadPhoto($nome, $foto)) {
 			$Response->setContent(json_encode(array(
@@ -105,8 +108,9 @@ class Index {
 	/**
 	 * @router method post
 	 */
-	public function xirarFotos ($nome) {
-		$foto = $this->Request->Post->get('file');
+	public function xirarFotos ($Request) {
+		$nome = $Request->Parameters->get(0);
+		$foto = $Request->Post->get('file');
 		$this->Galleries->rotatePhoto($nome, $foto);
 		$this->App->removeCache('fotos/'.$nome.'/'.$foto);
 	}
@@ -115,8 +119,9 @@ class Index {
 	/**
 	 * @router method post
 	 */
-	public function eliminarFotos ($nome) {
-		$foto = $this->Request->Post->get('file');
+	public function eliminarFotos ($Request) {
+		$nome = $Request->Parameters->get(0);
+		$foto = $Request->Post->get('file');
 		$this->Galleries->deletePhoto($nome, $foto);
 		$this->App->removeCache('fotos/'.$nome.'/'.$foto);
 	}

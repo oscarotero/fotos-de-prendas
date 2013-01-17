@@ -1,18 +1,19 @@
 <?php
 namespace Apps\Galerias\Controllers;
 
+use Fol\App;
+use Fol\Http\Request;
 use Fol\Http\Response;
 
 class Files {
 	private $cache = true;
 
-	public function __construct ($App, $Request) {
+	public function __construct (App $App) {
 		$this->App = $App;
-		$this->Request = $Request;
 		$this->cache = $App->Config->get('settings')['cache'];
 	}
 
-	public function css ($file) {
+	public function css ($Request, $file) {
 		$Stylecow = \Stylecow\Parser::parseFile($this->App->assetsPath.$file);
 		$Stylecow->applyPlugins(array(
 			'VendorPrefixes',
@@ -31,19 +32,19 @@ class Files {
 		return $Response;
 	}
 
-	public function jpg ($file) {
-		return $this->image($file);
+	public function jpg ($Request, $file) {
+		return $this->image($Request, $file);
 	}
 
-	public function jpeg ($file) {
-		return $this->image($file);
+	public function jpeg ($Request, $file) {
+		return $this->image($Request, $file);
 	}
 
-	public function png ($file) {
-		return $this->image($file);
+	public function png ($Request, $file) {
+		return $this->image($Request, $file);
 	}
 
-	private function image ($file) {
+	private function image ($Request, $file) {
 		$info = pathinfo($file);
 		$filename = $this->App->assetsPath.'/'.$info['dirname'];
 		$operations = $info['filename'];

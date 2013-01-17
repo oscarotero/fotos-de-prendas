@@ -29,9 +29,6 @@
 		"chmod": {
 			"apps/Galerias/assets/cache": "0777",
 			"apps/Galerias/assets/fotos": "0777"
-		},
-		"move": {
-			"apps/Galerias/assets-root/": "assets/"
 		}
 	}
 }
