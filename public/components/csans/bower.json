@@ -1,0 +1,8 @@
+{
+    "name": "csans",
+    "version": "1.5.0",
+    "ignore": [
+        "tests"
+    ],
+    "dependencies": {}
+}
