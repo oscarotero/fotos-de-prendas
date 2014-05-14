@@ -8,15 +8,17 @@ Por exemplo: un grupo de amigos que quere subir e intercambiar as suas fotos de 
 * Feito co framework Fol (https://github.com/oscarotero/Fol/) (PHP 5.4)
 * As fotos súbense directamente mediante drag and drop
 * Crea miniaturas automaticamente. Redimensiona as fotos subidas a un tamaño máximo de 1200px para aforrar espazo.
-* Funciona ben en Chrome/Firefox/Opera (Safari non permite subir novas fotos e Internet Explorer non soporta CSS columns)
 
 Instalacion (usando Composer)
 -----------------------------
 
-* Descargamos composer ```$ curl -s https://getcomposer.org/installer | php```
-* Agora instalamos Fol ```$ php composer.phar create-project fol/fol galerias```
-* Entramos no directorio e instalamos Galerias ```$ cd galerias``` ```$ php ../composer.phar require fol/galerias```
-* Listo. Agora podes editar o arquivo index.php, para que en vez de instanciar Apps\Web\App, instanciar Apps\Galerias\App, e así cargar esa aplicación por defecto. Ou sexa: ```(new Apps\Galerias\App)->handle(Request::createFromGlobals())->send();```
+Precisas composer e bower para instalar as dependencias:
+
+```
+$ composer create-project fol/galerias galerias
+$ cd galerias
+$ bower update
+```
 
 Demo
 ----
