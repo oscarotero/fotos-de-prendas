@@ -1,9 +1,9 @@
 {
-	"name": "fol/galerias",
-	"type": "fol-app",
-	"description": "PHP photo gallery built on Fol",
-	"keywords": ["photo", "gallery"],
-	"homepage": "https://github.com/oscarotero/Galerias",
+	"name": "fol/fol",
+	"type": "library",
+	"description": "PHP framework",
+	"keywords": ["framework"],
+	"homepage": "https://github.com/oscarotero/fol",
 	"license": "AGPL-3.0",
 	"authors": [
 		{
@@ -15,20 +15,24 @@
 	],
 	"support": {
 		"email": "oom@oscarotero.com",
-		"issues": "https://github.com/oscarotero/Galerias/issues"
+		"issues": "https://github.com/oscarotero/fol/issues"
 	},
 	"require": {
 		"php": ">=5.4.0",
-		"fol/app-installer": "dev-master",
-		"stylecow/stylecow": "*",
+		"fol/core": "2.*",
+		"filp/whoops": "*",
 		"imagecow/imagecow": "*"
 	},
-	"minimum-stability": "dev",
-	"extra": {
-		"path": "apps/Galerias",
-		"chmod": {
-			"apps/Galerias/assets/cache": "0777",
-			"apps/Galerias/assets/fotos": "0777"
+	"scripts": {
+		"post-create-project-cmd": "Fol\\Composer::postCreateProject"
+	},
+	"config": {
+		"vendor-dir": "vendor",
+		"bin-dir": "bin"
+	},
+	"autoload": {
+		"psr-4": {
+			"App\\": "app/"
 		}
 	}
 }
