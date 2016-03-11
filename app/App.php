@@ -58,6 +58,9 @@ class App extends Fol
     public function dispatch(ServerRequestInterface $request)
     {
         $dispatcher = (new RelayBuilder())->newInstance([
+            Middleware::digestAuthentication([
+                env('APP_AUTH_USERNAME') => env('APP_AUTH_PASSWORD')
+            ]),
             Middleware::basePath($this->getUrlPath()),
             Middleware::trailingSlash(),
             Middleware::cache($this['cache']),
