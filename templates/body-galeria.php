@@ -4,9 +4,9 @@
 
 <script type="text/javascript" charset="utf-8">
 var jsData = <?= json_encode(array(
-	'urlBase' => $app->getUrl(),
-	'maxfilesize' => $max,
-	'galeria' => $gallery
+    'urlBase' => $app->getUrl(),
+    'maxfilesize' => $max,
+    'galeria' => $gallery,
 )); ?>;
 </script>
 

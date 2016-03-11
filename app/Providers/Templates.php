@@ -5,7 +5,6 @@ namespace App\Providers;
 use Fol;
 use Fol\ServiceProviderInterface;
 use League\Plates\Engine;
-use League\Plates\Extension\ExtensionInterface;
 
 class Templates implements ServiceProviderInterface
 {

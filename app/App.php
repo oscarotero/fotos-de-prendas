@@ -59,7 +59,7 @@ class App extends Fol
     {
         $dispatcher = (new RelayBuilder())->newInstance([
             Middleware::digestAuthentication([
-                env('APP_AUTH_USERNAME') => env('APP_AUTH_PASSWORD')
+                env('APP_AUTH_USERNAME') => env('APP_AUTH_PASSWORD'),
             ]),
             Middleware::basePath($this->getUrlPath()),
             Middleware::trailingSlash(),
@@ -67,7 +67,7 @@ class App extends Fol
             Middleware::formatNegotiator(),
             Middleware::errorHandler(),
             Middleware::readResponse($this->getPath('data/uploads'))->continueOnError(),
-            Middleware::AuraRouter($this['router'])->arguments($this)
+            Middleware::AuraRouter($this['router'])->arguments($this),
         ]);
 
         return $dispatcher($request, new Response());

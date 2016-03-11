@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Fol;
 use Fol\ServiceProviderInterface;
-use Interop\Container\ContainerInterface;
 use League\Flysystem;
 use MatthiasMullie\Scrapbook;
 
