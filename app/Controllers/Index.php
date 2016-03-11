@@ -1,115 +1,98 @@
 <?php
 namespace App\Controllers;
 
-use Fol\App;
-use Fol\Http\HttpException;
-use Fol\Http\Request;
-use Fol\Http\Response;
-use Fol\Templates;
+use App\App;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
+use Zend\Diactoros\Response\RedirectResponse;
+use Zend\Diactoros\Response\JsonResponse;
+use Imagecow\Image;
+use Uploader\Uploader;
 
-class Index {
-
-	//Portada onde se listan todas as galerías
-	public function index($request, $response, $app) {
-		$app->templates->register('body', 'body-index.php', [
-			'titulo' => $app->config->get('settings')['title'],
-			'galerias' => $app->galleries->get()
-		]);
-
-		return $app->templates->render('html.php', [
-			'titulo' => $app->config->get('settings')['title']
-		]);
+class Index
+{
+	/**
+	 * Portada da web
+	 */
+	public function index(Request $request, Response $response, App $app)
+	{
+		return $app['templates']->render('body-index');
 	}
 
 
-	//Interior dunha galería
-	public function galeria ($request, $response, $app) {
-		$nome = $request->route['galeria'];
+	/**
+	 * Interior dunha galería
+	 */
+	public function galeria(Request $request, Response $response, App $app)
+	{
+		$name = $request->getAttribute('galeria');
 
-		if (!$app->galleries->exists($nome)) {
-			throw new HttpException("Esta galería non existe", 404);
+		if (!$app['galleries']->exists($name)) {
+			return $response->withStatus(404);
 		}
 
-		$app->templates->register('body', 'body-galeria.php', [
-			'titulo' => $app->config->get('settings')['title'],
-			'galeria' => array(
-				'nome' => $nome
-			),
-			'fotos' => $app->galleries->getPhotos($nome),
-			'videos' => $app->galleries->getVideos($nome)
-		]);
-
-		return $app->templates->render('html.php', [
-			'titulo' => $app->config->get('settings')['title'].' » '.$nome
+		return $app['templates']->render('body-galeria', [
+			'gallery' => $name
 		]);
 	}
 
+	/**
+	 * Crear unha nova galería
+	 */
+	public function novaGaleria(Request $request, Response $response, App $app)
+	{
+		$data = $request->getParsedBody();
+		$name = $data['galeria'];
+		$app['galleries']->create($name);
 
-	//Crear unha nova galería
-	public function novaGaleria ($request, $response, $app) {
-		$nome = $request->data->get('nome');
-
-		$app->galleries->create($nome);
-
-		$response->redirect($app->router->getUrl('galeria', ['galeria' => $nome]));
+		return new RedirectResponse($app->getRoute('galeria', ['galeria' => $name]));
 	}
 
-	
-	//Subir novas fotos
-	public function subirFoto ($request, $response, $app) {
-		$nome = $request->data['galeria'];
+	/**
+	 * Subir novas fotos
+	 */
+	public function subirFoto(Request $request, Response $response, App $app)
+	{
+		$data = $request->getParsedBody();
+		$name = $data['galeria'];
 
-		$response->setFormat('json');
+		$file = $request->getUploadedFiles()['userfile'];
 
-		if ($request->files->hasError('userfile')) {
-			$response->setStatus(500);
-			$response->setContent(json_encode(array(
-				'error' => $request->files->getErrorMessage('userfile'),
-				'errorCode' => $request->files->getErrorCode('userfile')
-			)));
+		$upload = $app['uploader']->with($file)
+			->setDirectory($name)
+			->save();
 
-			return;
-		}
+		Image::fromFile($upload->getDestination(true))
+			->resize(2000, 2000)
+			->save();
 
-		$foto = $request->files->get('userfile');
-
-		if ($app->galleries->uploadPhoto($nome, $foto)) {
-			$response->setContent(json_encode(array(
-				'success' => 'Foto subida',
-				'thumb' => $app->getPublicUrl('fotos/'.$nome.'/'.$foto['name'])
-			)));
-
-			return;
-		}
-
-		$response->setStatus(500);
-		$response->setContent(json_encode(array(
-			'error' => 'Non se subiu a foto '.$nome
-		)));
+		return new JsonResponse([
+			'success' => 'Foto subida',
+			'thumb' => $app->getUrl('images', $upload->getDestination())
+		]);
 	}
 
-	//Xirar unha foto
-	public function xirarFoto ($request, $response, $app) {
-		$nome = $request->data['galeria'];
-		$foto = $request->data['file'];
+	/**
+	 * Xirar unha foto 90º grados
+	 */
+	public function xirarFoto ($request, $response, $app)
+	{
+		$data = $request->getParsedBody();
 
-		$app->galleries->rotatePhoto($nome, $foto);
+		$file = $app->getPath('data/uploads/images', $data['galeria'], $data['file']);
+
+		Image::fromFile($file)
+			->rotate(-90)
+			->save();
 	}
 
+	/**
+	 * Eliminar unha foto
+	 */
+	public function eliminarFoto(Request $request, Response $response, App $app)
+	{
+		$data = $request->getParsedBody();
 
-	//Elimina unha foto
-	public function eliminarFoto ($request, $response, $app) {
-		$nome = $request->data['galeria'];
-		$foto = $request->data['file'];
-
-		$this->galleries->deletePhoto($nome, $foto);
-	}
-
-	//Erro
-	public function error ($request, $response, $app) {
-		$exception = $request->route->get('exception');
-
-		$response->setStatus($exception->getCode());
-		$response->setContent($exception->getMessage());
+		$app['galleries']->deletePhoto($data['galeria'], $data['file']);
 	}
 }

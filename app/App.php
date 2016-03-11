@@ -1,104 +1,72 @@
 <?php
+
 namespace App;
 
-use Fol\Config;
-use Fol\Templates;
-use Fol\Errors;
+use Fol;
+use Relay\RelayBuilder;
+use Zend\Diactoros\ServerRequestFactory;
+use Zend\Diactoros\Response\SapiStreamEmitter;
+use Zend\Diactoros\Response;
+use Psr7Middlewares\Middleware;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
 
-use Fol\Http\Request;
-use Fol\Http\Router\Router;
-use Fol\Http\Router\RouteFactory;
-
-use Fol\FileSystem;
-
-class App extends \Fol\App
+class App extends Fol
 {
     /**
-     * Run the app (from http context)
+     * Run the app.
      */
-    public static function run ()
+    public static function run()
     {
-        //Configure errors
-        Errors::register();
-        Errors::displayErrors();
-        Errors::setPhpLogFile(BASE_PATH.'/logs/php.log');
-
-        //Execute the app
         $app = new static();
-        $request = Request::createFromGlobals();
 
-        $app($request)->send();
+        $request = ServerRequestFactory::fromGlobals();
+        $response = $app->dispatch($request);
+
+        (new SapiStreamEmitter())->emit($response);
     }
 
-
     /**
-     * Contructor. Register all services, etc
+     * Init the app.
      */
     public function __construct()
     {
-        //Init config
-        $this->config = new Config($this->getPath('config'));
+        $this->setPath(dirname(__DIR__));
+        $this->setUrl(env('APP_URL'));
 
-        //Init router
-        $this->router = new Router(new RouteFactory($this->getNamespace('Controllers')));
-
-        $this->router->map([
-            'index' => [
-                'path' => '/',
-                'target' => 'Index::index'
-            ],
-            'nova-galeria' => [
-                'path' => '/nova-galeria',
-                'target' => 'Index::novaGaleria',
-                'method' => 'POST'
-            ],
-            'galeria' => [
-                'path' => '/galeria/{galeria}',
-                'target' => 'Index::galeria'
-            ],
-            'subir-foto' => [
-                'path' => '/subir-foto',
-                'target' => 'Index::subirFoto',
-                'method' => 'POST'
-            ],
-            'xirar-foto' => [
-                'path' => '/xirar-foto',
-                'target' => 'Index::xirarFoto',
-                'method' => 'POST'
-            ],
-            'eliminar-foto' => [
-                'path' => '/eliminar-foto',
-                'target' => 'Index::eliminarFoto',
-                'method' => 'POST'
-            ]
-        ]);
-
-        //$this->router->setError('Index::error');
-
-        //Register other services
-        $this->define([
-            'templates' => function () {
-                $templates = new Templates($this->getPath('templates'));
-                $templates->app = $this;
-
-                return $templates;
-            },
-            'galleries' => function () {
-                return new Models\Galleries(new FileSystem($this->getPath('../public/fotos')));
-            }
-        ]);
+        $this->register(new Providers\Router());
+        $this->register(new Providers\Templates());
+        $this->register(new Providers\Galleries());
+        $this->register(new Providers\Cache());
+        $this->register(new Providers\Uploader());
     }
 
+    public function getRoute($name, array $data = [], $query = null)
+    {
+        $query = $query ? '?'.http_build_query($query) : '';
+
+        return $this->getUrl($this['router']->getGenerator()->generate($name, $data)).$query;
+    }
 
     /**
-     * Executes a request
+     * Executes a request.
      *
-     * @param \Fol\Http\Request $request
-     * 
-     * @return \Fol\Http\Response
+     * @param ServerRequestInterface $request
+     *
+     * @return ResponseInterface
      */
-    protected function handleRequest(Request $request)
+    public function dispatch(ServerRequestInterface $request)
     {
-        return $this->router->handle($request, [$this]);
+        $dispatcher = (new RelayBuilder())->newInstance([
+            Middleware::basePath($this->getUrlPath()),
+            Middleware::trailingSlash(),
+            Middleware::cache($this['cache']),
+            Middleware::formatNegotiator(),
+            Middleware::errorHandler(),
+            Middleware::readResponse($this->getPath('data/uploads'))->continueOnError(),
+            Middleware::AuraRouter($this['router'])->arguments($this)
+        ]);
+
+        return $dispatcher($request, new Response());
     }
 }

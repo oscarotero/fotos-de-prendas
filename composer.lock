@@ -1,0 +1,1449 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "de32aaefcbf3ed911ea0680875309c6a",
+    "content-hash": "a524d507fe5206759cead8fbdfd61cb0",
+    "packages": [
+        {
+            "name": "aura/router",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/auraphp/Aura.Router.git",
+                "reference": "aeb49c8903cb07561022e2b65ef16c68fd2c01da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/auraphp/Aura.Router/zipball/aeb49c8903cb07561022e2b65ef16c68fd2c01da",
+                "reference": "aeb49c8903cb07561022e2b65ef16c68fd2c01da",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "psr/http-message": "~1.0",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "zendframework/zend-diactoros": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aura\\Router\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aura.Router Contributors",
+                    "homepage": "https://github.com/auraphp/Aura.Router/contributors"
+                }
+            ],
+            "description": "Powerful, flexible web routing for PSR-7 requests.",
+            "homepage": "https://github.com/auraphp/Aura.Router",
+            "keywords": [
+                "psr-7",
+                "route",
+                "router",
+                "routing"
+            ],
+            "time": "2015-12-01 15:31:40"
+        },
+        {
+            "name": "codegyre/robo",
+            "version": "0.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Codegyre/Robo.git",
+                "reference": "1f4e0621fdc37521e2eaca67f33d1c4e240dc7d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Codegyre/Robo/zipball/1f4e0621fdc37521e2eaca67f33d1c4e240dc7d8",
+                "reference": "1f4e0621fdc37521e2eaca67f33d1c4e240dc7d8",
+                "shasum": ""
+            },
+            "require": {
+                "henrikbjorn/lurker": "~1.0",
+                "php": ">=5.4.0",
+                "symfony/console": "~2.5|~3.0",
+                "symfony/filesystem": "~2.5|~3.0",
+                "symfony/finder": "~2.5|~3.0",
+                "symfony/process": "~2.5|~3.0"
+            },
+            "require-dev": {
+                "codeception/aspect-mock": "0.5.4",
+                "codeception/base": "~2.1.5",
+                "codeception/verify": "0.2.*",
+                "natxet/cssmin": "~3.0",
+                "patchwork/jsqueeze": "~1.0",
+                "pear/archive_tar": "~1.0"
+            },
+            "suggest": {
+                "pear/archive_tar": "Allows tar archives to be created and extracted in taskPack and taskExtract, respectively."
+            },
+            "bin": [
+                "robo"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Robo\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Davert",
+                    "email": "davert.php@resend.cc"
+                }
+            ],
+            "description": "Modern task runner",
+            "time": "2016-02-25 19:28:51"
+        },
+        {
+            "name": "container-interop/container-interop",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/container-interop/container-interop.git",
+                "reference": "fc08354828f8fd3245f77a66b9e23a6bca48297e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/container-interop/container-interop/zipball/fc08354828f8fd3245f77a66b9e23a6bca48297e",
+                "reference": "fc08354828f8fd3245f77a66b9e23a6bca48297e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Container\\": "src/Interop/Container/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
+            "time": "2014-12-30 15:22:37"
+        },
+        {
+            "name": "fol/core",
+            "version": "v11.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fol-project/core.git",
+                "reference": "b76c779e9c6c2c02a636b6d2f064baa7affbc39d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fol-project/core/zipball/b76c779e9c6c2c02a636b6d2f064baa7affbc39d",
+                "reference": "b76c779e9c6c2c02a636b6d2f064baa7affbc39d",
+                "shasum": ""
+            },
+            "require": {
+                "container-interop/container-interop": "*",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Fol": "src/"
+                },
+                "psr-4": {
+                    "Fol\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Oscar Otero",
+                    "email": "oom@oscarotero.com",
+                    "homepage": "http://oscarotero.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The core of FOL framework",
+            "homepage": "https://github.com/fol-project/core",
+            "keywords": [
+                "framework"
+            ],
+            "time": "2015-12-31 09:46:56"
+        },
+        {
+            "name": "henrikbjorn/lurker",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flint/Lurker.git",
+                "reference": "ab45f9cefe600065cc3137a238217598d3a1d062"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flint/Lurker/zipball/ab45f9cefe600065cc3137a238217598d3a1d062",
+                "reference": "ab45f9cefe600065cc3137a238217598d3a1d062",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/config": "~2.2",
+                "symfony/event-dispatcher": "~2.2"
+            },
+            "suggest": {
+                "ext-inotify": ">=0.1.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Lurker": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yaroslav Kiliba",
+                    "email": "om.dattaya@gmail.com"
+                },
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com"
+                },
+                {
+                    "name": "Henrik Bjrnskov",
+                    "email": "henrik@bjrnskov.dk"
+                }
+            ],
+            "description": "Resource Watcher.",
+            "keywords": [
+                "filesystem",
+                "resource",
+                "watching"
+            ],
+            "time": "2015-10-27 09:19:19"
+        },
+        {
+            "name": "imagecow/imagecow",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oscarotero/imagecow.git",
+                "reference": "357cf0b7f714b678bc8a738d10fb69c194f522f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oscarotero/imagecow/zipball/357cf0b7f714b678bc8a738d10fb69c194f522f3",
+                "reference": "357cf0b7f714b678bc8a738d10fb69c194f522f3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Imagecow\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oscar Otero",
+                    "email": "oom@oscarotero.com",
+                    "homepage": "http://oscarotero.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP library to manipulate and generate responsive images",
+            "homepage": "https://github.com/oscarotero/imagecow/",
+            "keywords": [
+                "image"
+            ],
+            "time": "2016-02-04 23:58:03"
+        },
+        {
+            "name": "league/flysystem",
+            "version": "1.0.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "b334d6c5f95364948e06d2f620ab93d084074c6e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/b334d6c5f95364948e06d2f620ab93d084074c6e",
+                "reference": "b334d6c5f95364948e06d2f620ab93d084074c6e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "conflict": {
+                "league/flysystem-sftp": "<1.0.6"
+            },
+            "require-dev": {
+                "ext-fileinfo": "*",
+                "mockery/mockery": "~0.9",
+                "phpspec/phpspec": "^2.2",
+                "phpunit/phpunit": "~4.8 || ~5.0"
+            },
+            "suggest": {
+                "ext-fileinfo": "Required for MimeType",
+                "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
+                "league/flysystem-aws-s3-v3": "Allows you to use S3 storage with AWS SDK v3",
+                "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
+                "league/flysystem-cached-adapter": "Flysystem adapter decorator for metadata caching",
+                "league/flysystem-copy": "Allows you to use Copy.com storage",
+                "league/flysystem-dropbox": "Allows you to use Dropbox storage",
+                "league/flysystem-eventable-filesystem": "Allows you to use EventableFilesystem",
+                "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
+                "league/flysystem-sftp": "Allows you to use SFTP server storage via phpseclib",
+                "league/flysystem-webdav": "Allows you to use WebDAV storage",
+                "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Filesystem abstraction: Many filesystems, one API.",
+            "keywords": [
+                "Cloud Files",
+                "WebDAV",
+                "abstraction",
+                "aws",
+                "cloud",
+                "copy.com",
+                "dropbox",
+                "file systems",
+                "files",
+                "filesystem",
+                "filesystems",
+                "ftp",
+                "rackspace",
+                "remote",
+                "s3",
+                "sftp",
+                "storage"
+            ],
+            "time": "2016-03-07 21:01:43"
+        },
+        {
+            "name": "league/plates",
+            "version": "3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/plates.git",
+                "reference": "2d8569e9f140a70d6a05db38006926f7547cb802"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/plates/zipball/2d8569e9f140a70d6a05db38006926f7547cb802",
+                "reference": "2d8569e9f140a70d6a05db38006926f7547cb802",
+                "shasum": ""
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "~1.4.0",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Plates\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Reinink",
+                    "email": "jonathan@reinink.ca",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Plates, the native PHP template system that's fast, easy to use and easy to extend.",
+            "homepage": "http://platesphp.com",
+            "keywords": [
+                "league",
+                "package",
+                "templates",
+                "templating",
+                "views"
+            ],
+            "time": "2015-07-09 02:14:40"
+        },
+        {
+            "name": "matthiasmullie/scrapbook",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matthiasmullie/scrapbook.git",
+                "reference": "e4a03a597a5a7cae1dd7045509faa18af9f5254b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matthiasmullie/scrapbook/zipball/e4a03a597a5a7cae1dd7045509faa18af9f5254b",
+                "reference": "e4a03a597a5a7cae1dd7045509faa18af9f5254b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3|^7.0",
+                "psr/cache": "~1.0"
+            },
+            "provide": {
+                "psr/cache-implementation": "~1.0"
+            },
+            "require-dev": {
+                "cache/integration-tests": "dev-master",
+                "cache/taggable-cache": "~0.3",
+                "fabpot/php-cs-fixer": "~1.0",
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "cache/taggable-cache": "~0.3",
+                "ext-apc": ">=3.1.1",
+                "ext-couchbase": ">=2.0.0",
+                "ext-memcached": ">=2.0.0",
+                "ext-pdo": ">=0.1.0",
+                "ext-redis": ">=2.2.0 || 0.0.0.0",
+                "league/flysystem": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MatthiasMullie\\Scrapbook\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Mullie",
+                    "email": "scrapbook@mullie.eu",
+                    "homepage": "http://www.mullie.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Scrapbook is a caching environment for PHP, with adapters for e.g. Memcached, Redis, Couchbase, APC, SQL and additional capabilities (e.g. transactions, stampede protection) built on top.",
+            "homepage": "http://scrapbook.cash",
+            "keywords": [
+                "Buffer",
+                "Flysystem",
+                "Taggable",
+                "apc",
+                "buffered",
+                "cache",
+                "caching",
+                "commit",
+                "couchbase",
+                "filesystem",
+                "key",
+                "memcached",
+                "mitigation",
+                "mysql",
+                "postgresql",
+                "protection",
+                "psr-6",
+                "psr-cache",
+                "psr6",
+                "redis",
+                "rollback",
+                "sql",
+                "sqlite",
+                "stampede",
+                "store",
+                "tag",
+                "transaction",
+                "transactional",
+                "value"
+            ],
+            "time": "2016-02-01 16:27:53"
+        },
+        {
+            "name": "micheh/psr7-cache",
+            "version": "0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/micheh/psr7-cache.git",
+                "reference": "25d045e5c8304540b5f26e8ad19bab0ba061c693"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/micheh/psr7-cache/zipball/25d045e5c8304540b5f26e8ad19bab0ba061c693",
+                "reference": "25d045e5c8304540b5f26e8ad19bab0ba061c693",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Micheh\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Cache helpers for PSR-7 HTTP Messages",
+            "keywords": [
+                "cache",
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-02-17 20:54:28"
+        },
+        {
+            "name": "oscarotero/env",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oscarotero/env.git",
+                "reference": "8836fc53726466fea17137c2f2622d89de51cd67"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oscarotero/env/zipball/8836fc53726466fea17137c2f2622d89de51cd67",
+                "reference": "8836fc53726466fea17137c2f2622d89de51cd67",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Env": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oscar Otero",
+                    "email": "oom@oscarotero.com",
+                    "homepage": "http://oscarotero.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple library to consume environment variables",
+            "homepage": "https://github.com/oscarotero/env",
+            "keywords": [
+                "env"
+            ],
+            "time": "2015-12-31 12:34:29"
+        },
+        {
+            "name": "oscarotero/psr7-middlewares",
+            "version": "v3.14.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oscarotero/psr7-middlewares.git",
+                "reference": "fb6627b2ba15f9f30a1bcd588bd503e2a3f97ad2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oscarotero/psr7-middlewares/zipball/fb6627b2ba15f9f30a1bcd588bd503e2a3f97ad2",
+                "reference": "fb6627b2ba15f9f30a1bcd588bd503e2a3f97ad2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "aura/router": "^3.0",
+                "aura/session": "2.*",
+                "filp/whoops": "2.*",
+                "google/recaptcha": "^1.1",
+                "imagecow/imagecow": "^2.0",
+                "league/route": "2.0.0-RC1",
+                "m6web/firewall": "~1.0",
+                "matthiasmullie/scrapbook": "^1.0",
+                "maximebf/debugbar": "~1.11",
+                "micheh/psr7-cache": "^0.3.0",
+                "mobiledetect/mobiledetectlib": "^2.8",
+                "monolog/monolog": "^1.17",
+                "mrclay/minify": "^2.2",
+                "neomerx/cors-psr7": "^0.2.0",
+                "nikic/fast-route": "0.*",
+                "paragonie/csp-builder": "^1.2",
+                "phpunit/phpunit": "~4.0",
+                "piwik/referrer-spam-blacklist": "^1.0",
+                "ramsey/uuid": "^3.1",
+                "relay/relay": "1.*",
+                "willdurand/geocoder": "^3.2",
+                "willdurand/negotiation": "~2.0",
+                "zendframework/zend-diactoros": "1.*"
+            },
+            "suggest": {
+                "aura/router": "To use AuraRouter",
+                "aura/session": "To use AuraSession",
+                "filp/whoops": "To use Whoops",
+                "google/recaptcha": "To use Recaptcha",
+                "imagecow/imagecow": "To use ImageTransformer",
+                "league/route": "To use LeagueRoute",
+                "m6web/firewall": "To use Firewall",
+                "maximebf/debugbar": "To use DebugBar",
+                "micheh/psr7-cache": "To use Cache",
+                "mobiledetect/mobiledetectlib": "To use DetectDevice",
+                "mrclay/minify": "To use Minify",
+                "neomerx/cors-psr7": "To use Cors",
+                "nikic/fast-route": "To use FastRoute",
+                "paragonie/csp-builder": "To use Csp",
+                "piwik/referrer-spam-blacklist": "To use BlockSpam",
+                "psr/cache-implementation": "To use Cache",
+                "psr/log-implementation": "To use AccessLog",
+                "ramsey/uuid": "To use Uuid",
+                "willdurand/geocoder": "To use Geolocate",
+                "willdurand/negotiation": "To use FormatNegotiator, LanguageNegotiator and EncodingNegotiator"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Psr7Middlewares\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oscar Otero",
+                    "email": "oom@oscarotero.com",
+                    "homepage": "http://oscarotero.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Collection of HTTP middlewares compatible with PSR-7",
+            "homepage": "https://github.com/oscarotero/psr7-middlewares",
+            "keywords": [
+                "http",
+                "middlewares",
+                "psr-7",
+                "psr-messages"
+            ],
+            "time": "2016-03-11 09:06:48"
+        },
+        {
+            "name": "psr/cache",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/cache.git",
+                "reference": "9e66031f41fbbdda45ee11e93c45d480ccba3eb3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/9e66031f41fbbdda45ee11e93c45d480ccba3eb3",
+                "reference": "9e66031f41fbbdda45ee11e93c45d480ccba3eb3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for caching libraries",
+            "keywords": [
+                "cache",
+                "psr",
+                "psr-6"
+            ],
+            "time": "2015-12-11 02:52:07"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2015-05-04 20:22:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Psr\\Log\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2012-12-21 11:40:51"
+        },
+        {
+            "name": "relay/relay",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/relayphp/Relay.Relay.git",
+                "reference": "e835fc45351b7a92a6fdf2a36be7bd59ef56c8ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/relayphp/Relay.Relay/zipball/e835fc45351b7a92a6fdf2a36be7bd59ef56c8ae",
+                "reference": "e835fc45351b7a92a6fdf2a36be7bd59ef56c8ae",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "psr/http-message": "~1.0"
+            },
+            "require-dev": {
+                "zendframework/zend-diactoros": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Relay\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Relay.Relay Contributors",
+                    "homepage": "https://github.com/relayphp/Relay.Relay/contributors"
+                }
+            ],
+            "description": "A PSR-7 middleware dispatcher.",
+            "homepage": "https://github.com/relayphp/Relay.Relay",
+            "keywords": [
+                "middleware",
+                "psr-7"
+            ],
+            "time": "2015-12-17 18:18:30"
+        },
+        {
+            "name": "symfony/config",
+            "version": "v2.8.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/config.git",
+                "reference": "0f8f94e6a32b5c480024eed5fa5cbd2790d0ad19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/config/zipball/0f8f94e6a32b5c480024eed5fa5cbd2790d0ad19",
+                "reference": "0f8f94e6a32b5c480024eed5fa5cbd2790d0ad19",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "symfony/filesystem": "~2.3|~3.0.0"
+            },
+            "suggest": {
+                "symfony/yaml": "To use the yaml reference dumper"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Config\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Config Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-02-22 16:12:45"
+        },
+        {
+            "name": "symfony/console",
+            "version": "v3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "2ed5e2706ce92313d120b8fe50d1063bcfd12e04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/2ed5e2706ce92313d120b8fe50d1063bcfd12e04",
+                "reference": "2ed5e2706ce92313d120b8fe50d1063bcfd12e04",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/event-dispatcher": "~2.8|~3.0",
+                "symfony/process": "~2.8|~3.0"
+            },
+            "suggest": {
+                "psr/log": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Console\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-02-28 16:24:34"
+        },
+        {
+            "name": "symfony/event-dispatcher",
+            "version": "v2.8.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/event-dispatcher.git",
+                "reference": "78c468665c9568c3faaa9c416a7134308f2d85c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/78c468665c9568c3faaa9c416a7134308f2d85c3",
+                "reference": "78c468665c9568c3faaa9c416a7134308f2d85c3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "~2.0,>=2.0.5|~3.0.0",
+                "symfony/dependency-injection": "~2.6|~3.0.0",
+                "symfony/expression-language": "~2.6|~3.0.0",
+                "symfony/stopwatch": "~2.3|~3.0.0"
+            },
+            "suggest": {
+                "symfony/dependency-injection": "",
+                "symfony/http-kernel": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\EventDispatcher\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony EventDispatcher Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-01-27 05:14:19"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/filesystem.git",
+                "reference": "23ae8f9648d0a7fe94a47c8e20e5bf37c489a451"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/23ae8f9648d0a7fe94a47c8e20e5bf37c489a451",
+                "reference": "23ae8f9648d0a7fe94a47c8e20e5bf37c489a451",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Filesystem Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-02-23 15:16:06"
+        },
+        {
+            "name": "symfony/finder",
+            "version": "v3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/finder.git",
+                "reference": "623bda0abd9aa29e529c8e9c08b3b84171914723"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/623bda0abd9aa29e529c8e9c08b3b84171914723",
+                "reference": "623bda0abd9aa29e529c8e9c08b3b84171914723",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Finder\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Finder Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-01-27 05:14:46"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "1289d16209491b584839022f29257ad859b8532d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/1289d16209491b584839022f29257ad859b8532d",
+                "reference": "1289d16209491b584839022f29257ad859b8532d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2016-01-20 09:13:37"
+        },
+        {
+            "name": "symfony/process",
+            "version": "v3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "dfecef47506179db2501430e732adbf3793099c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/dfecef47506179db2501430e732adbf3793099c8",
+                "reference": "dfecef47506179db2501430e732adbf3793099c8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-02-02 13:44:19"
+        },
+        {
+            "name": "uploader/uploader",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oscarotero/uploader.git",
+                "reference": "0f12bf0be7d6aefabb41d7b6b9ec56e68c6d742f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oscarotero/uploader/zipball/0f12bf0be7d6aefabb41d7b6b9ec56e68c6d742f",
+                "reference": "0f12bf0be7d6aefabb41d7b6b9ec56e68c6d742f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Uploader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oscar Otero",
+                    "email": "oom@oscarotero.com",
+                    "homepage": "http://oscarotero.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Basic PHP library to upload files using different sources",
+            "homepage": "https://github.com/fol-project/fol",
+            "keywords": [
+                "framework"
+            ],
+            "time": "2015-12-15 13:57:46"
+        },
+        {
+            "name": "vlucas/phpdotenv",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/phpdotenv.git",
+                "reference": "9caf304153dc2288e4970caec6f1f3b3bc205412"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/9caf304153dc2288e4970caec6f1f3b3bc205412",
+                "reference": "9caf304153dc2288e4970caec6f1f3b3bc205412",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dotenv\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Vance Lucas",
+                    "email": "vance@vancelucas.com",
+                    "homepage": "http://www.vancelucas.com"
+                }
+            ],
+            "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
+            "homepage": "http://github.com/vlucas/phpdotenv",
+            "keywords": [
+                "dotenv",
+                "env",
+                "environment"
+            ],
+            "time": "2015-12-29 15:10:30"
+        },
+        {
+            "name": "willdurand/negotiation",
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/willdurand/Negotiation.git",
+                "reference": "a8ce6da7acdf07351ccd6a9359c571ebc0725a21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/a8ce6da7acdf07351ccd6a9359c571ebc0725a21",
+                "reference": "a8ce6da7acdf07351ccd6a9359c571ebc0725a21",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Negotiation\\": "src/Negotiation"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "will+git@drnd.me"
+                }
+            ],
+            "description": "Content Negotiation tools for PHP provided as a standalone library.",
+            "homepage": "http://williamdurand.fr/Negotiation/",
+            "keywords": [
+                "accept",
+                "content",
+                "format",
+                "header",
+                "negotiation"
+            ],
+            "time": "2015-11-21 14:23:02"
+        },
+        {
+            "name": "zendframework/zend-diactoros",
+            "version": "1.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-diactoros.git",
+                "reference": "4d54fde709664562eb63356f0250d527824d05de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/4d54fde709664562eb63356f0250d527824d05de",
+                "reference": "4d54fde709664562eb63356f0250d527824d05de",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "~1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.6",
+                "squizlabs/php_codesniffer": "^2.3.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev",
+                    "dev-develop": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Diactoros\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "description": "PSR HTTP Message implementations",
+            "homepage": "https://github.com/zendframework/zend-diactoros",
+            "keywords": [
+                "http",
+                "psr",
+                "psr-7"
+            ],
+            "time": "2016-01-04 21:37:32"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.5.0"
+    },
+    "platform-dev": []
+}

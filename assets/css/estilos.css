@@ -1,16 +1,20 @@
+@import "../../bower_components/csans/csans.css";
+@import "../../bower_components/fancybox/source/jquery.fancybox.css";
+
 html {
-	background: color(black, 90);
+	--color: gold;
+
+	background: color(black tint(10));
 	color: white;
 }
 
 body {
 	padding: 40px;
-	font-family: 'Source Sans Pro', sans-serif;
 }
 
 a {
 	outline: none;
-	color: gold;
+	color: var(--color);
 	text-decoration: none;
 }
 a:hover {
@@ -19,25 +23,25 @@ a:hover {
 }
 
 .boton {
-	background: gold;
-	background: linear-gradient(to bottom, gold, color(gold, light:-20));
+	background: var(--color);
+	background: linear-gradient(to bottom, var(--color), color(var(--color) whiteness(-20%)));
 	color: black;
 	padding: 3px 12px 4px 12px;
 	display: inline-block;
 	border-radius: 20px;
 	box-shadow: 1px 1px 4px black;
-	text-shadow: 0 1px 0 color(gold, 80);
+	text-shadow: 0 1px 0 color(var(--color) tint(20));
 	border: none;
-	border-top: solid 1px color(gold, 30);
+	border-top: solid 1px color(var(--color) tint(70));
 	font-weight: normal;
 	font-size: 1rem;
 	vertical-align: bottom;
 }
 .boton:hover {
 	text-decoration: none;
-	background: color(gold, light:-20);
+	background: color(var(--color) whiteness(-20%));
 	text-shadow: 0 -1px 0 black;
-	border-top: solid 1px gold;
+	border-top: solid 1px var(--color);
 	box-shadow: 1px 1px 1px black;
 	color: white;
 }
@@ -45,13 +49,13 @@ a:hover {
 	display: none;
 }
 .zona-dragdrop {
-	background: color(black, 85);
-	border: 8px dashed color(black, 70);
+	background: color(black tint(15));
+	border: 8px dashed color(black tint(30));
 	padding: 40px;
 	border-radius: 20px;
 	font-weight: bold;
 	font-size: 3rem;
-	color: color(black, 70);
+	color: color(black tint(30));
 	text-align: center;
 	text-shadow: 1px 1px 1px black;
 	line-height: 1;
@@ -60,7 +64,7 @@ a:hover {
 	p {
 		font-weight: normal;
 		font-size: 1rem;
-		color: color(black, 50);
+		color: color(black tint(50));
 		margin-top: 10px;
 	}
 	progress {
@@ -120,6 +124,7 @@ section {
 		li {
 			display: inline-block;
 			height: 200px;
+			max-width: 100%;
 		}
 
 		a {
@@ -132,6 +137,7 @@ section {
 				transition: transform 0.2s;
 				box-sizing: border-box;
 				border: solid 5px black;
+				max-width: 100%;
 			}
 		}
 

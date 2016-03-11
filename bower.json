@@ -1,16 +1,10 @@
 {
-  "name": "galerias",
-  "version": "1.0",
-  "homepage": "https://github.com/oscarotero/Galerias",
-  "authors": [
-    "oscarotero <oom@oscarotero.com>"
-  ],
-  "license": "MIT",
+  "name": "Fotos de prendas",
   "private": true,
   "dependencies": {
-    "csans": "~1.5.0",
-    "jquery-filedrop": "~0.1.0",
-    "fancybox": "~2.1.5",
-    "jquery": "~2.1.1"
+    "jquery": "^2.2.1",
+    "fancybox": "^2.1.5",
+    "jquery-filedrop": "^0.1.0",
+    "csans": "1.x"
   }
 }

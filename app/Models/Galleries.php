@@ -1,112 +1,69 @@
 <?php
 namespace App\Models;
 
-use Fol\FileSystem;
+use League\Flysystem\Filesystem;
+use League\Flysystem\Adapter\AbstractAdapter;
+use Uploader\Uploader;
+use Imagecow\Image;
 
-class Galleries {
-	private $fs;
+class Galleries
+{
+	private $fileSystem;
 
-	public function __construct (FileSystem $fs) {
-		$this->fs = $fs;
+	public function __construct (AbstractAdapter $adapter)
+	{
+		$this->fileSystem = new FileSystem($adapter);
 	}
 
-	public function get () {
-		$galleries = [];
-
-		foreach ($this->fs->getIterator() as $item) {
-			if ($item->isDir()) {
-				$galleries[] = $item;
-			}
-		}
-
-		return $galleries;
+	/**
+	 * Returns all galleries
+	 */
+	public function getAll ()
+	{
+		return array_filter($this->fileSystem->listContents(), function ($value) {
+			return $value['type'] === 'dir';
+		});
 	}
 
-	public function exists ($gallery) {
-		return $gallery && $this->fs->getInfo($gallery)->isDir();
+	/**
+	 * Checks whether a gallery exists
+	 */
+	public function exists ($gallery)
+	{
+		return $this->fileSystem->has($gallery);
 	}
 
+	/**
+	 * Creates a new gallery
+	 */
 	public function create ($gallery) {
-		if (!$this->exists($gallery)) {
-			$this->fs->mkdir($gallery);
+		if (!$this->fileSystem->has($gallery)) {
+			$this->fileSystem->createDir($gallery);
 		}
 	}
 
+	/**
+	 * Returns all photos
+	 */
 	public function getPhotos ($gallery) {
-		$photos = [];
-
-		foreach ($this->fs->getGlobIterator("{$gallery}/*.jpg") as $item) {
-			$photos[] = $item;
-		}
-
-		return $photos;
+		return array_filter($this->fileSystem->listContents($gallery), function ($value) {
+			return in_array(strtolower($value['extension']), ['jpg', 'jpeg', 'gif', 'png'], true);
+		});
 	}
 
+	/**
+	 * Returns all videos
+	 */
 	public function getVideos ($gallery) {
-		$videos = [];
-
-		foreach ($this->fs->getGlobIterator($gallery.'/*.mp4') as $video) {
-			$k = $video->getBaseName('.mp4');
-	
-			$videos[$k] = ['mp4' => $video];
-		}
-
-		foreach ($this->fs->getGlobIterator($gallery.'/*.ogv') as $video) {
-			$k = $video->getBaseName('.ogv');
-			
-			if (!isset($videos[$k])) {
-				$videos[$k] = ['ogv' => $video];
-			} else {
-				$videos[$k]['ogv'] = $video;
-			}
-		}
-
-		foreach ($this->fs->getGlobIterator($gallery.'/*.webm') as $video) {
-			$k = $video->getBaseName('.webm');
-			
-			if (!isset($videos[$k])) {
-				$videos[$k] = ['webm' => $video];
-			} else {
-				$videos[$k]['webm'] = $video;
-			}
-		}
-
-		return $videos;
+		return array_filter($this->fileSystem->listContents($gallery), function ($value) {
+			return in_array(strtolower($value['extension']), ['mp4'], true);
+		});
 	}
 
-	public function uploadPhoto ($gallery, $photo) {
-		if (!$this->exists($gallery)) {
-			return false;
-		}
-
-		$name = $this->fs->copy($photo, $gallery);
-
-		$image = \Imagecow\Image::create($name);
-		$image->resize(1200, 1200)->save();
-
-		return true;
-	}
-
-	public function rotatePhoto ($gallery, $photo) {
-		if ($this->exists($gallery)) {
-			$file = $this->fs->getPath($gallery.'/'.$photo);
-
-			if (is_file($file)) {
-				$image = \Imagecow\Image::create($file);
-				$image->rotate(-90)->save();
-
-				return true;
-			}
-		}
-
-		return false;
-	}
-
+	/**
+	 * Remove a photo
+	 */
 	public function deletePhoto ($gallery, $photo) {
-		if ($this->exists($gallery) && $photo) {
-			$this->fs->remove($gallery.'/'.$photo);
-		}
-
-		return false;
+		$this->fileSystem->delete($gallery.'/'.$photo);
 	}
 }
